@@ -1,6 +1,6 @@
-function calculateTimeGap(time) {
+function calculateTimeGap(date) {
     const currenTime = new Date();
-    const postTime = new Date(time);
+    const postTime = new Date(date);
     const timeDef = currenTime.getTime() - postTime.getTime();
     const minutesGap = parseInt(timeDef / (1000 * 60));
     const hoursGap = parseInt(timeDef / (1000 * 60 * 60));
