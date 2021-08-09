@@ -1,3 +1,4 @@
+// english version
 function calculateTimeGap(date) {
     const timeDef = new Date().getTime() - new Date(date).getTime();
     const minutesGap = parseInt(timeDef / (1000 * 60));
@@ -24,5 +25,27 @@ function calculateTimeGap(date) {
         } else if (daysGap >= 7 && daysGap < 14) return "1 week ago";
         else if (daysGap >= 14 && daysGap < 21) return "2 weeks ago";
         else return "3 weeks ago";
+    }
+}
+// arabic version
+function calculateTimeGapAR(date) {
+    const timeDef = new Date().getTime() - new Date(date).getTime();
+    const minutesGap = parseInt(timeDef / (1000 * 60));
+    const hoursGap = parseInt(timeDef / (1000 * 60 * 60));
+    const daysGap = parseInt(timeDef / (1000 * 60 * 60 * 24));
+    const monthsGap = parseInt(timeDef / (1000 * 60 * 60 * 24 * 30));
+    const yearsGap = parseInt(timeDef / (1000 * 60 * 60 * 24 * 30 * 12));
+    if (yearsGap > 0) return "منذ " + yearsGap + " سنة";
+    else if (monthsGap == 1) return "منذ " + monthsGap + " شهر";
+    else if (monthsGap == 0) {
+        if (daysGap == 0) {
+            if (hoursGap == 0) {
+                if (minutesGap == 0) return "الان فقط";
+                else return "منذ " + minutesGap + " دقيقة";
+            } else return "منذ " + hoursGap + " ساعة";
+        } else if (daysGap < 7) return "منذ " + daysGap + " يوم";
+        else if (daysGap >= 7 && daysGap < 14) return "منذ اسبوع";
+        else if (daysGap >= 14 && daysGap < 21) return "منذ اسبوعين";
+        else return "منذ 3 اسابيع";
     }
 }
